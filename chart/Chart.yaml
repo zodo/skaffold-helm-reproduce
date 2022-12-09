@@ -1,0 +1,4 @@
+apiVersion: v2
+name: recreate_test
+type: application
+version: 1.0.0

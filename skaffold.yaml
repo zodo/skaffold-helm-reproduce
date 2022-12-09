@@ -1,0 +1,24 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: reproduce-skaffold-helm
+build:
+  artifacts:
+    - image: reproduce-skaffold-helm
+      docker: {}
+  tagPolicy:
+    inputDigest: { }
+  local:
+    tryImportMissing: true
+manifests:
+  helm:
+    releases:
+      - name: reproduce-skaffold-helm
+        chartPath: chart/
+        valuesFiles:
+          - values.yaml
+        setValueTemplates:
+          deployment.image: '{{.IMAGE_FULLY_QUALIFIED_reproduce_skaffold_helm}}'
+        createNamespace: true
+deploy:
+  helm: { }
