@@ -12,4 +12,4 @@ Helm recreates POD after second deploy
 
 ## Expected behavior
 
-Second deploy affectes nothing
+Second deploy affects nothing
